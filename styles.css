@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Calculator {
+    display: flex;
+    border-color: black;
+    border-style: solid;
+    height: 85%;
+    width: 30%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#display {
+    padding: 2%;
+    margin: 2%;
+    height: 20%;
+    width: 85%;
+    border-color: black;
+    border-style: solid;
+}
+
+.Buttons {
+    border-color: black;
+    border-style: solid;
+    height: 70%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.RowOne, .RowTwo, .RowThree, .RowFour, .RowFive {
+    border-color: black;
+    border-style: solid;
+    padding: 2%;
+    height: 14%;
+    width: 96%;
+}
