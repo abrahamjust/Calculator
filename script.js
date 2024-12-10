@@ -99,3 +99,35 @@ clear.addEventListener("click", () => {
     document.getElementById("display").innerText = ''
     console.log("hello")
 })
+
+const equals = document.getElementById("equals")
+equals.addEventListener("click", () => {
+    if(operand1 == null) {
+        alert("no number entered")
+    } else if(operator == null) {
+        alert("no operator entered")
+    } else {
+        operate(operand1, Number(displayNum), operator)
+    }
+})
+
+const percent = document.getElementById("percentage")
+percent.addEventListener("click", () => {
+    if(operand1 == null) {
+        if(displayNum == null) {
+            alert("no number entered")
+        } else {
+            displayNum = (Number(displayNum) / 100).toString()
+            setDisplay()
+        }
+    } else if(displayNum == ''){
+        displayNum = operand1 / 100
+        setDisplay()
+        operand1 = null
+    } else {
+        operate(operand1, Number(displayNum), operator)
+        displayNum = operand1 / 100
+        setDisplay()
+        operand1 = null
+    }
+})
