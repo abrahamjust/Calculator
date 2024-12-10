@@ -48,7 +48,6 @@ function operate(op1, op2, operator) {
 
 function setDisplay() {
     const disp = document.getElementById("display")
-    console.log(displayNum.length)
     if(displayNum.length > 9) {
         let numDisp = displayNum.substring(0, 9)
         disp.innerText = numDisp
@@ -71,14 +70,12 @@ function Operator(op) {
     if(check.innerText == '') {
         alert("no number entered")
     } else if(operand1 == null) {
-        console.log("hi")
         operand1 = Number(displayNum)
         displayNum = ''
         operator = op
     } else {
         operate(operand1, Number(displayNum), operator)
         operator = op
-        console.log(operand1, " ", displayNum, " ", operator)
     }
 }
 
@@ -109,7 +106,6 @@ clear.addEventListener("click", () => {
     operand2 = null
     operator = null
     document.getElementById("display").innerText = ''
-    console.log("hello")
 })
 
 const equals = document.getElementById("equals")
@@ -147,10 +143,8 @@ percent.addEventListener("click", () => {
 
 const dec = document.getElementById("decimal")
 dec.addEventListener("click", () => {
-    console.log("hello")
     if(!displayNum.includes('.')) {
         displayNum = displayNum + '.'
-        console.log(displayNum)
         setDisplay()
     }
 })
