@@ -3,6 +3,8 @@ let operand2
 let operator
 let displayNum = '0'
 
+alert("to fix an error, use the keyboard back space button")
+
 function operate(op1, op2, operator) {
     let ans = 0
     switch(operator) {
@@ -148,3 +150,59 @@ dec.addEventListener("click", () => {
         setDisplay()
     }
 })
+
+document.addEventListener('keydown', function(event) {
+    switch (event.code) {
+        case 'Digit0':
+        case 'Numpad0':
+            inputOperand('0')
+            break;
+        case 'Digit1':
+        case 'Numpad1':
+            inputOperand('1')
+            break;
+        case 'Digit2':
+        case 'Numpad2':
+            inputOperand('2')
+            break;
+        case 'Digit3':
+        case 'Numpad3':
+            inputOperand('3')
+            break;
+        case 'Digit4':
+        case 'Numpad4':
+            inputOperand('4')
+            break;
+        case 'Digit5':
+        case 'Numpad5':
+            inputOperand('5')
+            break;
+        case 'Digit6':
+        case 'Numpad6':
+            inputOperand('6')
+            break;
+        case 'Digit7':
+        case 'Numpad7':
+            inputOperand('7')
+            break;
+        case 'Digit8':
+        case 'Numpad8':
+            inputOperand('8')
+            break;
+        case 'Digit9':
+        case 'Numpad9':
+            inputOperand('9')
+            break;
+    }
+});
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Backspace') {
+        if(displayNum == '0' || displayNum == ''){
+            alert("nothing to delete or cannot delete answer")
+        } else {
+            displayNum = displayNum.slice(0, -1)
+            setDisplay()
+        }
+    }
+});
