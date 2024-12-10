@@ -2,7 +2,6 @@ let operand1
 let operand2
 let operator
 let displayNum = '0'
-let used = 0
 
 function operate(op1, op2, operator) {
     let ans = 0
@@ -10,37 +9,46 @@ function operate(op1, op2, operator) {
         case '+':
             ans = op1 + op2
             operand1 = ans
-            displayNum = ans
+            displayNum = ans.toString()
             setDisplay()
             displayNum = '0'
             break
         case '-':
             ans = op1 - op2
             operand1 = ans
-            displayNum = ans
+            displayNum = ans.toString()
             setDisplay()
             displayNum = '0'
             break
         case '*':
             ans = op1 * op2
             operand1 = ans
-            displayNum = ans
+            displayNum = ans.toString()
             setDisplay()
             displayNum = '0'
             break
         case '/':
-            ans = op1 / op2
-            operand1 = ans
-            displayNum = ans
-            setDisplay()
-            displayNum = '0'
+            if(op2 == 0) {
+                alert("division by zero not allowed, clearing the calculator")
+                displayNum = '0'
+                operand1 = null
+                operand2 = null
+                operator = null
+                document.getElementById("display").innerText = ''
+            } else {
+                ans = op1 / op2
+                operand1 = ans
+                displayNum = ans.toString()
+                setDisplay()
+                displayNum = '0'
+            }
             break
     }
 }
 
 function setDisplay() {
     const disp = document.getElementById("display")
-    used = 1
+    console.log(displayNum.length)
     if(displayNum.length > 9) {
         let numDisp = displayNum.substring(0, 9)
         disp.innerText = numDisp
@@ -59,7 +67,11 @@ function inputOperand(num) {
 }
 
 function Operator(op) {
-    if(operand1 == null) {
+    const check = document.getElementById("display")
+    if(check.innerText == '') {
+        alert("no number entered")
+    } else if(operand1 == null) {
+        console.log("hi")
         operand1 = Number(displayNum)
         displayNum = ''
         operator = op
@@ -108,6 +120,7 @@ equals.addEventListener("click", () => {
         alert("no operator entered")
     } else {
         operate(operand1, Number(displayNum), operator)
+        operator = null
     }
 })
 
@@ -129,5 +142,15 @@ percent.addEventListener("click", () => {
         displayNum = operand1 / 100
         setDisplay()
         operand1 = null
+    }
+})
+
+const dec = document.getElementById("decimal")
+dec.addEventListener("click", () => {
+    console.log("hello")
+    if(!displayNum.includes('.')) {
+        displayNum = displayNum + '.'
+        console.log(displayNum)
+        setDisplay()
     }
 })
