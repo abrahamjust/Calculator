@@ -10,7 +10,7 @@ body {
 
 .Calculator {
     display: flex;
-    border-color: black;
+    border-color: #E5E7EB;
     border-style: solid;
     height: 85%;
     width: 30%;
@@ -25,7 +25,7 @@ body {
     margin: 2%;
     height: 20%;
     width: 90%;
-    border-color: black;
+    border-color: #E5E7EB;
     border-style: solid;
     display: flex;
     justify-content: flex-end;
@@ -38,7 +38,7 @@ body {
 }
 
 .Buttons {
-    border-color: black;
+    border-color: #E5E7EB;
     border-style: solid;
     height: 70%;
     width: 95%;
@@ -71,6 +71,13 @@ body {
     font-size: 2rem;
 }
 
+#percentage {
+    width: 100%;
+    height: 100%;
+    font-family: monospace;
+    font-size: 2rem;
+}
+
 .Function {
     width: 25%;
     height: 100%;
@@ -88,7 +95,7 @@ body {
     background-color: #F97316;
 }
 
-.Special {
+.Special, #percentage {
     color: #000000;
     background-color: #FCD34D;
 }
@@ -98,3 +105,7 @@ body {
     color: #FFFFFF;
 }
 
+button:focus {
+    outline: none; 
+    box-shadow: 0 0 8px 3px #06B6D4; 
+  }
